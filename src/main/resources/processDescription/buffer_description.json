@@ -1,0 +1,59 @@
+{
+  "id": "buffer",
+  "title": "buffer",
+  "version": "1.0.0",
+  "description": "Input a shpfile with url and buffer distance,return the url of buffered file in geojson format",
+  "jobControlOptions": [
+    "sync-execute"
+  ],
+  "outputTransmission": [
+    "value",
+    "reference"
+  ],
+  "inputs": {
+    "shpUrl": {
+      "schema": {
+        "title": "shpUrl",
+        "type": "String",
+        "format": "url",
+        "default": ""
+      },
+      "minOccurs": 1,
+      "maxOccurs": 1
+    },
+    "distance": {
+      "schema": {
+        "title": "a buffer distance",
+        "type": "Number",
+        "default": ""
+      },
+      "minOccurs": 1,
+      "maxOccurs": 1
+    }
+  },
+  "outputs": {
+    "url": {
+      "schema": {
+        "title": "url",
+        "type": "String",
+        "format": "url",
+        "contentMediaType": "application/geojson",
+        "description": "A buffered result folder in geojson format"
+      }
+    }
+  },
+  "links": [
+    {
+      "type": "application/json",
+      "rel": "self",
+      "href": "https://192.168.137.1:8099//processes_api/processes/buffer",
+      "title": "The description of BUFFER process"
+    },
+    {
+      "type": "application/json",
+      "rel": "http://www.opengis.net/def/rel/ogc/1.0/execute",
+      "href": "https://192.168.137.1:8099//processes_api/processes/buffer/execution",
+      "title": "Execution for BUFFER process"
+    }
+  ]
+}

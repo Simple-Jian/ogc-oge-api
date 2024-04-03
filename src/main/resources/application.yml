@@ -1,0 +1,89 @@
+#数据源配置
+spring:
+  application:
+    name: oge-api-boot
+  datasource:
+    username:
+    password:
+#    username: root
+#    password: 1234
+    driver-class-name: org.postgresql.Driver
+
+    url:
+    type: com.alibaba.druid.pool.DruidDataSource
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    filters: stat,wall,log4j
+    maxPoolPreparedStatementPerConnectionSize: 20
+    useGlobalDataSourceStat: true
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+mybatis:
+  configuration:
+    mapUnderscoreToCamelCase: true
+  mapper-locations: classpath*:whu/edu/cn/**/xml/*Mapper.xml
+
+minio:
+  #  endpoint:
+  endpoint:
+  accesskey:
+  secretKey:
+
+#端口号
+server:
+  port: 8099
+  http:
+    port: 8091
+  ssl:
+    key-store: classpath:keystore.p12
+    key-store-password:
+    keyStoreType:
+    keyAlias:
+  servlet:
+    context-path:
+
+#springfox.documentation.swagger.: oge.whu.edu.cn
+#SparkAppSubmitParas
+#sparkappparas:
+#  sparkHome: /home/geocube/spark
+#  master: spark://125.220.153.26:7077
+#  mainClass:
+#        maps:
+#          ndwi: whu.edu.cn.application.spetralindices.NDWI
+#          ndvi: whu.edu.cn.application.spetralindices.NDVI
+#          ndbi: whu.edu.cn.application.spetralindices.NDBI
+#          mndwi: whu.edu.cn.application.spetralindices.MNDWI
+#          wofs: whu.edu.cn.application.timeseries.WOfS
+#          waterChangeDetection: whu.edu.cn.application.timeseries.WaterChangeDetection
+#          vegetationChangeDetection: whu.edu.cn.application.timeseries.VegetationChangeDetection
+#          flood: whu.edu.cn.application.conjoint.Flood
+#  driverMemory: 24G
+#  executorMemory: 5G
+#  totalExecutorCores: 32
+#  executorCores: 1
+#  jarPath:
+#      maps:
+#        examples: /home/geocube/spark/examples/jars/spark-examples_2.11-2.4.3.jar
+#        QueryTiles: /home/geocube/environment_test/TileQuery_Env/geocube.jar
+#        ndwi: /home/geocube/environment_test/NDWI_Env/geocube.jar
+#        geocube: /home/geocube/environment_test/geocube_core_jar/geocube.jar
+#  deployMode: client
+#  rpcMessageMaxSize: 1024
+#  kryoserializerBufferMax: 512m
+#  sparkDriverMaxResultSize: 8g
+
+# 阿里云OSS配置
+oss:
+  aliyun:
+    endpoint:
+    accessKeyId:
+    accessKeySecret:
+    bucketName:

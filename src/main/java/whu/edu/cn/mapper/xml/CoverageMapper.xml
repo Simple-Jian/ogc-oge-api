@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="whu.edu.cn.mapper.CoverageMapper">
+    <select id="getCollectionMetaByParams" resultType="whu.edu.cn.bean.Image">
+        select t1.image_id as imageId,t1.product_key as productKey,t1.image_identification as imageIdentification,
+        t1.path as path,t1.crs as crs,t1.cover_cloud as coverCloud,t1.map_projection as mapProjection,
+        t1.utm_zone as utmZone,t1.phenomenon_time as phenomenonTime,t1.result_time as resultTime,
+        t1.upper_left_lat as upperLeftLat,t1.upper_left_long as upperLeftLong,
+        t1.upper_right_lat as upperRightLat,t1.upper_right_long as upperRightLong,
+        t1.lower_left_lat as lowerLeftLat,t1.lower_left_long as lowerLeftLong,
+        t1.lower_right_lat as lowerRightLat,t1.lower_right_long as lowerRightLong,
+        t1.create_by as createBy,t1.create_time as createTime,
+        t1.update_by as updateBy,t1.update_time as updateTime,
+        t1.path as path,t5.thumb as thumb,t6.preview as preview,
+        t2.name as productName,t2.sensor_key as sensorKey,t2.label as label, t2.land_cover_adapt as landCoverAdapt,
+        t3.sensor_name as sensorName,t3.platform_name as platformName,
+        t4.unit as unit, t4.resolution as rowResolution, t4.resolution as colResolution, t4.band_num as bandNum, t4.band_rank as bandRank
+        from oge_data_resource_product as t2
+        left join oge_sensor as t3
+        on t2.sensor_key = t3.sensor_key
+        right join oge_image as t1
+        on t2.id = t1.product_key
+        left join oge_product_measurement as t4
+        on t4.product_key = t1.product_key
+        left join oge_image_thumb as t5
+        on t1.image_id = t5.image_id
+        left join  oge_image_preview as t6
+        on t1.image_id = t6.image_id
+        where t2.is_publish=false
+        <if test="startTime!=null ">
+            AND t1.phenomenon_time > #{startTime}
+        </if>
+        <if test="endTime!=null">
+            AND #{endTime} > t1.phenomenon_time
+        </if>
+<!--        <if test="WKT!=null and WKT!=''">-->
+<!--            AND ST_Intersects(t1.geom,'SRID=4326;${WKT}')-->
+<!--        </if>-->
+        <choose>
+            <when test="endTime!=null">
+                order by t1.phenomenon_time ASC
+            </when>
+            <otherwise>
+                order by t1.product_key ASC
+            </otherwise>
+        </choose>
+        <if test="limit!=null">
+            limit #{limit}
+        </if>
+    </select>
+
+</mapper>

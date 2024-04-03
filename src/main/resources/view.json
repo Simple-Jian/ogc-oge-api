@@ -1,0 +1,43 @@
+{
+  "functionInvocationValue": {
+    "functionName": "aggregate",
+    "arguments": {
+      "data": {
+        "functionInvocationValue": {
+          "functionName": "normalize",
+          "arguments": {
+            "data": {
+              "functionInvocationValue": {
+                "functionName": "loadCube",
+                "arguments": {
+                  "extent": "4.7,51.7,4.85,51.8",
+                  "startTime": "2019-01-17 00:00:00",
+                  "endTime": "2019-01-20 00:00:00",
+                  "cubeName": "SENTINEL-2 Level-2A MSI"
+                }
+              }
+            },
+            "data2": {
+              "functionInvocationValue": {
+                "functionName": "loadCube",
+                "arguments": {
+                  "extent": "4.7,51.7,4.85,51.8",
+                  "startTime": "2019-01-17 00:00:00",
+                  "endTime": "2019-01-20 00:00:00",
+                  "cubeName": "SENTINEL-2 Level-2A MSI"
+                }
+              }
+            },
+            "dimensionMembers": [
+              "B8",
+              "B3"
+            ],
+            "dimensionName": "bands"
+          }
+        }
+      },
+      "method": "mean",
+      "dimensionName": "time"
+    }
+  }
+}

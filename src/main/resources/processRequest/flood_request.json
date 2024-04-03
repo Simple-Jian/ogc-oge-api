@@ -1,0 +1,59 @@
+{
+  "inputs": [
+    {
+      "id": "rasterProductName",
+      "input": {
+        "dataType": {
+          "name": "string"
+        },
+        "value": "GF_Hainan_Daguangba_NDWI_EO"
+      }
+    },
+    {
+      "id": "vectorProductName",
+      "input": {
+        "dataType": {
+          "name": "string"
+        },
+        "value": "Hainan_Daguangba_Bridge_Vector"
+      }
+    },
+    {
+      "id": "extent",
+      "input": {
+        "dataType": {
+          "name": "string"
+        },
+        "value": "108.46494046724021,18.073457222586285,111.02181165740333,20.2597805438586"
+      }
+    },
+    {
+      "id": "startTime",
+      "input": {
+        "dataType": {
+          "name": "string"
+        },
+        "value": "2016-06-01"
+      }
+    },
+    {
+      "id": "endTime",
+      "input": {
+        "dataType": {
+          "name": "string"
+        },
+        "value": "2016-09-01"
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "complexOutput",
+      "format": {
+        "mimeType": "application/json"
+      },
+      "transmissionMode": "value"
+    }],
+  "response": "document",
+  "mode": "async"
+}

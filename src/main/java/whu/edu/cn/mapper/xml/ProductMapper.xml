@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="whu.edu.cn.mapper.ProductMapper">
+
+    <select id="getProductsByParams" resultType="whu.edu.cn.entity.ProductCopy">
+        select * from "SensorLevelAndProduct" where 1=1
+        <if test="productName !='' and productName!=null">
+            AND product_name = #{productName}
+        </if>
+        <if test="startTime!=null ">
+            AND phenomenon_time > #{startTime}
+        </if>
+        <if test="endTime!=null">
+            AND  #{endTime}>phenomenon_time
+        </if>
+        <if test="WKT!=null and WKT!=''">
+            AND ST_Intersects(geom,'SRID=4326;${WKT}')
+        </if>
+    </select>
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,32 @@
+{
+  "process": "http://oge.whu.edu.cn/geocube/gdc_api_t19/processes/aggregate",
+  "inputs": {
+    "data": {
+      "process": "http://oge.whu.edu.cn/geocube/gdc_api_t19/processes/normalize",
+      "inputs": {
+        "data": {
+          "process": "http://oge.whu.edu.cn/geocube/gdc_api_t19/processes/loadCube",
+          "inputs": {
+            "cubeName": "SENTINEL-2 Level-2A MSI",
+            "extent": "4.7,51.7,4.85,51.8",
+            "startTime": "2019-01-17 00:00:00",
+            "endTime": "2019-01-20 00:00:00"
+          }
+        },
+        "data2": {
+          "process": "http://oge.whu.edu.cn/geocube/gdc_api_t19/processes/loadCube",
+          "inputs": {
+            "cubeName": "SENTINEL-2 Level-2A MSI",
+            "extent": "4.7,51.7,4.85,51.8",
+            "startTime": "2019-01-17 00:00:00",
+            "endTime": "2019-01-20 00:00:00"
+          }
+        },
+        "dimensionName": "bands",
+        "dimensionMembers": ["B8", "B3"]
+      }
+    },
+    "dimensionName": "time",
+    "method": "mean"
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "id": "mndwi",
+  "title": "mndwi",
+  "version": "1.0.0",
+  "jobControlOptions": ["async-execute"],
+  "outputTransmission": ["value", "reference"],
+  "inputs": [
+    {
+      "id": "rasterProductName",
+      "title": "raster input",
+      "input": {
+        "literalDataDomain": {
+          "dataType": {
+            "rasterProductName": "string"
+          },
+          "valueDefinition": {
+            "anyValue": true
+          }
+        }
+      },
+      "minOccurs": 1,
+      "maxOccurs": 1
+    },
+    {
+      "id": "extent",
+      "title": "extent",
+      "input": {
+        "literalDataDomain": {
+          "dataType": {
+            "extent": "string"
+          },
+          "valueDefinition": {
+            "anyValue": true
+          }
+        }
+      },
+      "minOccurs": 1,
+      "maxOccurs": 1
+    },
+    {
+      "id": "startTime",
+      "title": "startTime",
+      "input": {
+        "literalDataDomain": {
+          "dataType": {
+            "startTime": "string"
+          },
+          "valueDefinition": {
+            "anyValue": true
+          }
+        }
+      },
+      "minOccurs": 1,
+      "maxOccurs": 1
+    },
+    {
+      "id": "endTime",
+      "title": "endTime",
+      "input": {
+        "literalDataDomain": {
+          "dataType": {
+            "endTime": "string"
+          },
+          "valueDefinition": {
+            "anyValue": true
+          }
+        }
+      },
+      "minOccurs": 1,
+      "maxOccurs": 1
+    }],
+  "outputs": [
+    {
+      "id": "complexOutput",
+      "title": "complexOutput",
+      "output": {
+        "formats": [{
+          "default": true,
+          "mimeType": "application/xml"
+        },
+          {
+            "mimeType": "application/xml"
+          },
+          {
+            "mimeType": "text/xml"
+          }]
+      }
+    }],
+  "links": [
+    {
+      "href": "http://125.220.153.26:8091/geocube/processes_api/processes/mndwi/jobs",
+      "rel": "execute",
+      "title": "MNDWI Execute endpoint"
+    }
+  ]
+}
